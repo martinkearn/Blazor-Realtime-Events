@@ -1,0 +1,34 @@
+﻿@page "/"
+@inject ICounterService CounterService
+
+<h1>Counter viewer</h1>
+
+<p>Counter: <strong>@counter</strong></p>
+
+<p>Go to <a href="/AddToCounter" target="_blank">AddToCounter</a> in a seperate browser window to increase the count.</p>
+
+@code
+{
+    int counter;
+
+    protected override void OnInitialized()
+    {
+        // Set counter initially
+        counter = CounterService.Get();
+
+        // Subscribe to CounterChanged event
+        CounterService.CounterChanged += CounterChanged;
+    }
+
+    private async void CounterChanged(object sender, int newCounter)
+    {
+        await InvokeAsync(() =>
+        {
+            // Set the local counter variable
+            counter = newCounter;
+
+            // Tell Blazor to rewrite the DOM
+            StateHasChanged();
+        });
+    }
+}
