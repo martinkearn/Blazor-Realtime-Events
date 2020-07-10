@@ -8,12 +8,7 @@ namespace BlazorServerRealtime.Services
     /// </summary>
     public class CounterService : ICounterService
     {
-        private int counter;
-
-        public CounterService()
-        {
-            counter = 0;
-        }
+        private int counter = 0;
 
         /// <inheritdoc />
         public int Get()
