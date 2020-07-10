@@ -1,0 +1,20 @@
+﻿@page "/AddToCounter"
+@inject ICounterService CounterService
+
+<h1>Add to counter</h1>
+
+<p><button type="button" @onclick="AddRandomNumberToCounter">Add random number to counter</button></p>
+
+<p>Go to <a href="/" target="_blank">Index</a> in a seperate browser window to see the counter.</p>
+
+@code
+{
+    private void AddRandomNumberToCounter()
+    {
+        // Generate a random number between 1 and 50
+        int randomNumber = new Random().Next(1, 50);
+
+        // Add the random number to the counter
+        CounterService.Add(randomNumber);
+    }
+}

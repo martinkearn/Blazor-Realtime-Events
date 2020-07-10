@@ -16,6 +16,12 @@ namespace BlazorServerRealtime.Services
         }
 
         /// <inheritdoc />
+        public int Get()
+        {
+            return counter;
+        }
+
+        /// <inheritdoc />
         public int Add(int numberToAdd) 
         {
             counter += numberToAdd;
