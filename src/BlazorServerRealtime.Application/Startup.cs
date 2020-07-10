@@ -1,3 +1,5 @@
+using BlazorServerRealtime.Services;
+using BlazorServerRealtime.Services.Interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -18,6 +20,9 @@ namespace BlazorServerRealtime.Application
         {
             services.AddRazorPages();
             services.AddServerSideBlazor();
+
+            // Custom services
+            services.AddSingleton<ICounterService, CounterService>();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

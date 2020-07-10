@@ -1,3 +1,7 @@
 ﻿@page "/"
+@inject ICounterService CounterService
 
-<h1>Hello, world!</h1>
+<h1>Count Viewer</h1>
+
+<p>This will show the current count in realtime.</p>
+<p>Go to <a href="/AddToCount" target="_blank">AddToCount</a> in a seperate browser window to increase the count and see this page update in real time.</p>
