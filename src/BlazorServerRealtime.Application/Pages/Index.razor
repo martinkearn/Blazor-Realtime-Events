@@ -18,6 +18,9 @@
 
         // Subscribe to CounterChanged event
         CounterService.CounterChanged += CounterChanged;
+
+        // In a real-world scenario, you should be sure to unsubscribe from the event at the appropriate point for your application.
+        // See https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/events/how-to-subscribe-to-and-unsubscribe-from-events#unsubscribing
     }
 
     private async void CounterChanged(object sender, int newCounter)
